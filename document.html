@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+<html>
+   <style>
+       body{
+           height: 100%;
+           width: 100%;
+           display: flex;
+           flex-direction: row-reverse;
+           line-height: 1.5;
+           font-family: 'Overpass', sans-serif;
+       }
+       #navbar{
+         width: 20%;
+         height: 100%;
+         position: fixed;
+         top: 0;
+         left: 0;
+         background-color:rgb(79, 155, 255);
+         border-right:rgb(2, 2, 80),solid;
+
+       }
+       #main-doc{
+           width: 80%;
+           height: 100%;
+           position: absolute;
+           
+       }
+       .nav-link{
+           padding: 10px 10pxx 10px 0px;
+           text-align: start;
+           font-size: 20px;
+           text-decoration: none;
+           display: block;
+           color:black;
+           margin-bottom: 10px;
+           
+
+       }
+       #nav-head{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 8px;
+       }
+       h1{
+           font-size: 25px;
+           display: block;
+           background-color: rgb(79, 155, 255);
+           border-radius: 5px;
+           margin: 10px;
+           padding: 10px;
+       }
+       code{
+           background-color: lightgray;
+           margin: 10px;
+           padding: 10px;
+           display: block;
+           overflow-x: hidden;
+           border-radius: 5px;
+           line-height: 2;
+           text-align: left;
+           word-break: normal;
+           word-wrap: normal;
+           position: relative;
+       }
+       p{
+           padding: 10px;
+           margin: 10px;
+       }
+       @media only screen and (max-width: 768px) {
+           #navbar{
+               display: none;
+           }
+           #main-doc{
+               width: 100%;
+               margin-left: 0px;
+               position: relative;
+           }
+       }
+   </style> 
+    <body>
+        <main id="main-doc">
+            <div>
+              <section class="main-section">
+               <header id="introduction"><h1>Introduction</h1></header>
+               <p>
+                JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser),
+                JavaScript<br>can be connected to the objects of its environment to provide programmatic control over them.
+               </p>
+               <p>
+                JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements.
+                Core<br>JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+               </p>
+               <ul>
+                   <li>Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions
+                       <br>allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.</li>
+                   <li>Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an
+                       <br>application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a<br> server.</li>
+               </ul>
+              </section>
+              <section class="main-section">
+               <header id="what_should_you_already_know"><h1>What Should You Already Know</h1></header>
+               <p>This guide assumes you have the following basic background:</p>
+               <ul>
+                   <li>A general understanding of the Internet and the World Wide Web (WWW).</li>
+                   <li>Good working knowledge of HyperText Markup Language (HTML).</li>
+                   <li>Some programming experience. If you are new to programming, try one of the tutorials linked on the main page about JavaScript.</li>
+               </ul>
+            </section>
+            <section class="main-section">
+              <header id="hello_world"><h1>Hello World</h1></header>
+              <p>To get started with writing JavaScript, open the Scratchpad and write your first "Hello world" JavaScript code:</p>
+              <code>function greetMe(yourName) { alert("Hello " + yourName); }
+                    <br>greetMe("World");
+            </code>
+                    <p>Select the code in the pad and hit Ctrl+R to watch it unfold in your browser!</p>
+            </section>
+            <section class="main-section">
+              <header id="variables"><h1>Variables</h1></header>
+              <p>You use variables as symbolic names for values in your application. The names of variables, called identifiers, conform to certain rules.</p>
+              <p>A JavaScript identifier must start with a letter, underscore (_), or dollar sign ($); subsequent characters can also be digits (0-9). Because JavaScript is case sensitive, letters
+                 <br>include the characters "A" through "Z" (uppercase) and the characters "a" through "z" (lowercase).</p>
+                 <p>You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers. You can also use the<br>Unicode escape sequences as characters in identifiers. Some examples of legal names are Number_hits, temp99, and _name.</p>
+            </section>
+            <section class="main-section">
+              <header id="declaring_variables"><h1>Declaring Variables</h1></header>
+              <p>You can declare a variable in three ways:</p>
+              <p>With the keyword var. For example,</p>
+              <code>
+                    var x = 42.
+              </code>
+              <p>This syntax can be used to declare both local and global variables.</p>
+              <p>By simply assigning it a value. For example,</p>
+              <code>x = 42.</code>
+              <p>This always declares a global variable. It generates a strict JavaScript warning. You shouldn't use this variant.</p>
+              <p>With the keyword let. For example,</p>
+              <code> let y = 13.</code>
+              <p>This syntax can be used to declare a block scope local variable.</p>
+            </section>
+            <section class="main-section">
+              <header id="constants"><h1>Constants</h1></header>
+              <p>You can create a read-only, named constant with the const keyword. The syntax of a constant identifier is the same as for a variable identifier: it must start with a letter,<br>underscore or dollar sign and can contain alphabetic, numeric, or underscore characters.</p>
+              <code>const PI = 3.14;</code>
+              <p>A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value.</p>
+              <p>The scope rules for constants are the same as those for let block scope variables. If the const keyword is omitted, the identifier is assumed to represent a variable.</p>
+              <p>You cannot declare a constant with the same name as a function or variable in the same scope. For example:</p>
+              <code>
+                    // THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS WILL<br>
+                    CAUSE AN ERROR ALSO function f() { const g = 5; var g; //statements
+                    }
+              </code>
+              <p>However, object attributes are not protected, so the following statement is executed without problems.</p>
+              <code>const MY_OBJECT = {"key": "value"}; MY_OBJECT.key = "otherValue";</code>
+            </section>
+            <section class="main-section">
+                <header id="data_types"><h1>Data Types</h1></header>
+               <p>The latest ECMAScript standard defines seven data types:</p>
+               <ul>
+                   <li>Six data types that are primitives:
+                       <li>Boolean. true and false.</li>
+                       <li>null. A special keyword denoting a null value. Because JavaScript is case-sensitive, null is not the same as Null, NULL, or any other variant.</li>
+                       <li>undefined. A top-level property whose value is undefined.</li>
+                       <li>Number. 42 or 3.14159.</li>
+                       <li>String. "Howdy"</li>
+                       <li>Symbol (new in ECMAScript 2015). A data type whose instances are unique and immutable.</li>
+                   </li>
+                   <li>and Object</li>
+               </ul>
+            </section>
+            <section class="main-section">
+            <header id="if_else_statements"><h1>if...else Statements</h1></header>
+            <p>Use the if statement to execute a statement if a logical condition is true. Use the optional else clause to execute a statement if the condition is false. An if statement looks as<br>follows:</p>
+            <code>if (condition) { statement_1; } else { statement_2; }</code>
+            <p>condition can be any expression that evaluates to true or false. See Boolean for an explanation of what evaluates to true and false. If condition evaluates to true, statement_1 is executed; otherwise, statement_2 is<br>executed. statement_1 and statement_2 can be any statement, including further nested if statements.</p>
+            <p>You may also compound the statements using else if to have multiple conditions tested in sequence, as follows:</p>
+            <code>
+                    if (condition_1) { statement_1; } else if (condition_2) { statement_2;
+                    } else if (condition_n) { statement_n; } else { statement_last; }
+            </code>
+            <p>In the case of multiple conditions only the first logical condition which evaluates to true will be executed. To execute multiple statements, group them within a block statement<br>({ ... }) . In general, it's good practice to always use block statements, especially when nesting if statements:</p>
+            <code>
+                    if (condition) { statement_1_runs_if_condition_is_true;
+                        statement_2_runs_if_condition_is_true; } else {
+                        statement_3_runs_if_condition_is_false;
+                        statement_4_runs_if_condition_is_false; }
+            </code>
+            <p>It is advisable to not use simple assignments in a conditional expression, because the assignment can be confused with equality when glancing over the code. For example,<br>do not use the following code:</p>
+            <code>if (x = y) { /* statements here */ }</code>
+            <p>If you need to use an assignment in a conditional expression, a common practice is to put additional parentheses around the assignment. For example:</p>
+            <code>if ((x = y)) { /* statements here */ }</code>
+                </section>
+                <section class="main-section">
+                    <header id="reference"><h1>Reference</h1></header>
+                    <ul>
+                        <li>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">MDN</a></li>
+                    </ul>
+                </section>
+            </div>
+            </main>
+            <div>
+                    <nav id="navbar">
+                         <header id="nav-head">JS Documentation</header>
+                         <hr>
+                         <ul style="list-style: none">
+                         <li><a class="nav-link" href="#introduction">Introduction</a></li>
+                         <hr>
+                         <li></li><a class="nav-link" href="#what_should_you_already_know">What Should You Already Know</a></li>
+                         <hr>
+                         <li></li><a class="nav-link" href="#hello_world">Hello World</a></li>
+                         <hr>
+                         <li></li><a class="nav-link" href="#variables">Variables</a></li>
+                         <hr>
+                         <li></li><a class="nav-link" href="#declaring_variables">Decalring Variables</a></li>
+                         <hr>
+                         <li><a class="nav-link" href="#constants">Constants</a></li>
+                         <hr>
+                         <li></li><a class="nav-link" href="#data_types">Data Types</a></li>
+                         <hr>
+                         <li></li><a class="nav-link" href="#if_else_statements">If...else Statements</a></li>
+                         <hr>
+                         <li></li><a class="nav-link" href="#reference">Reference</a></li>
+                         <hr>
+                        </ul>
+                     </nav>
+                 </div>
+    </body>
+</html> 
